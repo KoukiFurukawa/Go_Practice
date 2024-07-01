@@ -41,3 +41,7 @@ func for_templates() {
 		fmt.Println(item[i], i)
 	}
 }
+
+func func_arguments(x int, y int) int {
+	return x + y
+}
