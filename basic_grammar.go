@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"math/rand"
+	"reflect"
+	"strconv"
 )
 
 func main() {
@@ -10,6 +12,10 @@ func main() {
 	rand_methods()
 
 	for_templates()
+
+	func_arguments(1, 2)
+
+	parse_samples()
 
 }
 
@@ -42,6 +48,27 @@ func for_templates() {
 	}
 }
 
+/* 引数あり --------------------------------------------------- */
 func func_arguments(x int, y int) int {
 	return x + y
+}
+func func_arguments2(x, y int, z string) string {
+	xy := x * y
+	completion_string := z + fmt.Sprint(xy)
+	return completion_string
+}
+
+func parse_samples() {
+	number := 1e9 + 7 // 1000000007 素数である
+	char := "57"
+
+	/* string に変換 */
+	num_to_string := fmt.Sprint(number)
+	fmt.Println(num_to_string, "%T", num_to_string)
+
+	/* int に変換 */
+	string_to_num, e := strconv.ParseInt(char, 10, 64)
+	if e == nil {
+		fmt.Println(string_to_num, reflect.TypeOf(string_to_num))
+	}
 }
