@@ -2,8 +2,10 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"math/rand"
 	"reflect"
+	"runtime"
 	"strconv"
 )
 
@@ -14,6 +16,7 @@ func main() {
 	parse_samples()       // int->string string->int
 	named_return_value(1) // 戻り値の指定
 	variable_modifier()   // 変数の設定
+	switch_sample()       // ランタイムを確認する
 }
 
 func rand_methods() {
@@ -106,4 +109,44 @@ func variable_modifier() {
 	const v string = "Value"
 	const num int = 3
 	const flag bool = true
+}
+
+func while() {
+	for {
+		// inf loop
+	}
+}
+
+func conditional_branch() {
+	a := 0
+	b := 1
+	if a == b {
+		fmt.Println("a is true")
+	} else if a == 0 {
+		return
+	} else {
+		return
+	}
+
+}
+
+func pow(x, n, lim float64) float64 {
+	if v := math.Pow(x, n); v < lim {
+		return v
+	}
+	return lim
+}
+
+func switch_sample() {
+	fmt.Print("Go runs on ")
+	switch os := runtime.GOOS; os {
+	case "darwin":
+		fmt.Println("OS X.")
+	case "linux":
+		fmt.Println("Linux.")
+	default:
+		// freebsd, openbsd,
+		// plan9, windows...
+		fmt.Printf("%s.\n", os)
+	}
 }
