@@ -218,4 +218,9 @@ func slice_operation() {
 	fmt.Println(s)
 	s = append(s, 2, 3, 4, 5)
 	fmt.Println(s)
+
+	// slice_object
+	so := make([][]uint8, 10)
+	so[0] = make([]uint8, 10)
+	fmt.Println(cap(so[0]), so)
 }
