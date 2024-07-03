@@ -7,6 +7,7 @@ import (
 	"reflect"
 	"runtime"
 	"strconv"
+	"strings"
 )
 
 func main() {
@@ -18,6 +19,9 @@ func main() {
 	variable_modifier()   // 変数の設定
 	switch_sample()       // ランタイムを確認する
 	defer_sample()        // 終わってから動作
+	struct_sample()       // 構造体テスト
+	Array_sample()        // 配列
+	slice_operation()     // slice操作
 }
 
 func rand_methods() {
@@ -44,8 +48,8 @@ func for_templates() {
 
 	/* 配列を見る --------------------------------------------- */
 	item := [3]int{4, 5, 6}
-	for i := range item {
-		fmt.Println(item[i], i)
+	for i, v := range item {
+		fmt.Println(item[i], i, v)
 	}
 }
 
@@ -163,4 +167,55 @@ func defer_sample() {
 func hello() {
 	defer fmt.Println("Hello")
 	fmt.Print("World")
+}
+
+type Human struct {
+	age  int
+	name string
+}
+
+func struct_sample() {
+	var human = Human{age: 18, name: "john"}
+	fmt.Println(human)
+}
+
+func Array_sample() {
+	var a [2]string
+	a[0] = "fizz"
+	a[1] = "buzz"
+	fmt.Println(a)
+
+	primes := [6]int{2, 3, 5, 7, 11, 13}
+
+	// スライス
+	var slice []int = primes[1:4]
+	make_slice := make([]int, 3)
+	fmt.Println(primes, slice)
+	fmt.Println(len(primes), cap(make_slice))
+
+	// スライス色々
+	board := [][]string{
+		{"_", "_", "_"},
+		{"_", "_", "_"},
+		{"_", "_", "_"},
+	}
+
+	board[0][0] = "X"
+	board[2][2] = "O"
+	board[1][2] = "X"
+	board[1][0] = "O"
+	board[0][2] = "X"
+
+	for i := 0; i < len(board); i++ {
+		fmt.Printf("%s\n", strings.Join(board[i], " "))
+	}
+}
+
+func slice_operation() {
+	// append
+	s := make([]int, 10)
+	s = append(s, 1)
+	fmt.Println(s)
+	s = append(s, 2, 3, 4, 5)
+	fmt.Println(s)
 }
