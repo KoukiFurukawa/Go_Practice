@@ -24,7 +24,9 @@ func main() {
 	slice_operation()     // slice操作
 	map_sample()          // 辞書型
 	compute(swap)         // 関数を引数に
-	add(10, 11)
+	add(10, 11)           // 別ファイル呼び出し
+	createUserInfo(
+		[]uint8{17, 18, 19, 59, 60, 61}) // user作成
 }
 
 func rand_methods() {
