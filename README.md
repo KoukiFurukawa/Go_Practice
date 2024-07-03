@@ -2,3 +2,8 @@
 ```bash
 go run basic_grammar.go
 ```
+
+# まとめて実行
+```bash
+go run .
+```
