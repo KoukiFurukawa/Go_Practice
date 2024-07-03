@@ -22,6 +22,8 @@ func main() {
 	struct_sample()       // 構造体テスト
 	Array_sample()        // 配列
 	slice_operation()     // slice操作
+	map_sample()          // 辞書型
+	compute(swap)         // 関数を引数に
 }
 
 func rand_methods() {
@@ -223,4 +225,29 @@ func slice_operation() {
 	so := make([][]uint8, 10)
 	so[0] = make([]uint8, 10)
 	fmt.Println(cap(so[0]), so)
+}
+
+func map_sample() {
+	m := map[string]int{"hey": 4}
+	println(m["hey"])
+	// 初期化しておく
+	mp := make(map[string]Human)
+	mp["super"] = Human{age: 44, name: "man"}
+	fmt.Println(mp["super"])
+
+	// hey-4 削除
+	delete(m, "hey")
+
+	// hey-4 してない？
+	elem, ok := m["hey"]
+	fmt.Println("the value:", elem, "Present?", ok)
+}
+
+func compute(fn func(int, int) (int, int)) int {
+	var r, l int
+	r = 1
+	l = 10
+	r, l = fn(r, l)
+	fmt.Println(r, l)
+	return r + l
 }
