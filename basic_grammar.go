@@ -17,6 +17,7 @@ func main() {
 	named_return_value(1) // 戻り値の指定
 	variable_modifier()   // 変数の設定
 	switch_sample()       // ランタイムを確認する
+	defer_sample()        // 終わってから動作
 }
 
 func rand_methods() {
@@ -149,4 +150,13 @@ func switch_sample() {
 		// plan9, windows...
 		fmt.Printf("%s.\n", os)
 	}
+}
+
+func defer_sample() {
+	hello()
+}
+
+func hello() {
+	defer fmt.Println("Hello")
+	fmt.Print("World")
 }
