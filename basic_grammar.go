@@ -154,6 +154,10 @@ func switch_sample() {
 
 func defer_sample() {
 	hello()
+	// defer は **スタック** される
+	for i := 0; i < 10; i++ {
+		defer fmt.Println(i)
+	}
 }
 
 func hello() {
