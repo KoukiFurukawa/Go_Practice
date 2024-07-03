@@ -8,15 +8,12 @@ import (
 )
 
 func main() {
-
-	rand_methods()
-
-	for_templates()
-
-	func_arguments(1, 2)
-
-	parse_samples()
-
+	rand_methods()        // ランダム
+	for_templates()       // for 文
+	func_arguments(1, 2)  // 関数の引数
+	parse_samples()       // int->string string->int
+	named_return_value(1) // 戻り値の指定
+	variable_modifier()   // 変数の設定
 }
 
 func rand_methods() {
@@ -71,4 +68,42 @@ func parse_samples() {
 	if e == nil {
 		fmt.Println(string_to_num, reflect.TypeOf(string_to_num))
 	}
+}
+
+// Swap する
+func swap(x int, y int) (int, int) {
+	return y, x
+}
+
+// 戻り値の型と名前の指定を行える
+// 短い関数でのみ行うべき
+func named_return_value(sum int) (x, y int) {
+	x = sum * 4
+	y = sum / 4
+	return
+}
+
+func variable_modifier() {
+	// var 宣言で変数
+	var i, j, k int // 0が代入される
+	var b bool      // false
+	var s string    // ""
+	i = 3
+	j = 1
+	fmt.Println(i, j, k)
+	fmt.Printf("Type: %T\n Value:%v\n", b, b)
+	fmt.Printf("Type: %T\n Value:%v\n", s, s)
+
+	// var宣言で初期化子が与えられてる時、型の指定は省略できる
+	var char, number = "string", 0
+	fmt.Println(char, number)
+
+	// 関数内では、 := で同じことができる。
+	message := "ok"
+	fmt.Println(message)
+
+	// const で定数
+	const v string = "Value"
+	const num int = 3
+	const flag bool = true
 }
