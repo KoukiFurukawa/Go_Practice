@@ -24,6 +24,7 @@ func main() {
 	slice_operation()     // slice操作
 	map_sample()          // 辞書型
 	compute(swap)         // 関数を引数に
+	add(10, 11)
 }
 
 func rand_methods() {
