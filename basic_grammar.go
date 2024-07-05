@@ -27,6 +27,8 @@ func main() {
 	add(10, 11)           // 別ファイル呼び出し
 	createUserInfo(
 		[]uint8{17, 18, 19, 59, 60, 61}) // user作成
+	conditional_branch() // if
+	datetime_sample()
 }
 
 func rand_methods() {
@@ -128,7 +130,7 @@ func while() {
 }
 
 func conditional_branch() {
-	a := 0
+	a := 1
 	b := 1
 	if a == b {
 		fmt.Println("a is true")
@@ -136,6 +138,12 @@ func conditional_branch() {
 		return
 	} else {
 		return
+	}
+
+	s := "20:00"
+	t := "19:59"
+	if s > t {
+		fmt.Println("Ok")
 	}
 
 }
